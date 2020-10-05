@@ -10,8 +10,12 @@ const orm = {
             cb(results);
         })
     },
-    insertOne: function () {
-
+    insertOne: function (tableInput, col, val, cb) {
+        const queryString = "INSERT INTO " + tableInput + "(" + col + ") VALUES (?)"
+        connection.query(queryString, val, function(err, result){
+            if(err) throw err;
+            cb(result)
+        })
     },
     updateOne: function () {
 

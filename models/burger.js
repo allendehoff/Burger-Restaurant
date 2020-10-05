@@ -3,10 +3,15 @@ const orm = require("../config/orm.js");
 
 // Object holding code to use the ORM functions from orm.js
 const burger = {
-    selectAll: function(cb) {
-        orm.selectAll("burgers", function(res){
+    selectAll: function (cb) {
+        orm.selectAll("burgers", function (res) {
             cb(res)
         })
+    },
+    insertOne: function (col, val, cb) {
+        orm.insertOne("burgers", col, val, function (res) {
+                cb(res)
+            })
     }
 }
 
