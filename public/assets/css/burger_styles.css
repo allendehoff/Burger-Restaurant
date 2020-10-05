@@ -1,0 +1,31 @@
+body{
+    background-color: khaki;
+}
+
+.jumbotron{
+    padding: 1rem 2rem;
+    background-color: khaki;
+    color: orangered;
+}
+
+#burgerimage{
+    height: 300px;
+    width: 300px;
+}
+
+.devourbtn{
+    margin-left: 2rem;
+}
+.devoured li{
+    background-color: lightgrey;
+    color: darkslategray;
+    font-style: italic;
+    padding: 0.25rem;
+}
+
+.burgerinput{
+    height: 6rem;
+    width: 20rem;
+    margin: 1rem 0;
+    font-size: xx-large;
+}

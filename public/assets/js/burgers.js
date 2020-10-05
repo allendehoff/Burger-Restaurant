@@ -1,26 +1,6 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
-    // $(".change-sleep").on("click", function (event) {
-    //     var id = $(this).data("id");
-    //     var newSleep = $(this).data("newsleep");
-
-    //     var newSleepState = {
-    //         sleepy: newSleep
-    //     };
-
-    //     // Send the PUT request.
-    //     $.ajax("/api/cats/" + id, {
-    //         type: "PUT",
-    //         data: newSleepState
-    //     }).then(
-    //         function () {
-    //             console.log("changed sleep to", newSleep);
-    //             // Reload the page to get the updated list
-    //             location.reload();
-    //         }
-    //     );
-    // });
-
+    // Links 'Add Burger' button to route in controller for adding a new burger
     $(".create-form").on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
@@ -41,19 +21,25 @@ $(function () {
             }
         );
     });
+    // Links 'Devour It' button to controller route for changing a burger's status to 'devoured'
+    $(".devour").on("click", function (event) {
+        var id = $(this).data("id");
+        var devoured = $(this).data("edible");
 
-    // $(".delete-cat").on("click", function (event) {
-    //     var id = $(this).data("id");
+        var devouredState = {
+            edible: devoured
+        };
 
-    //     // Send the DELETE request.
-    //     $.ajax("/api/cats/" + id, {
-    //         type: "DELETE"
-    //     }).then(
-    //         function () {
-    //             console.log("deleted cat", id);
-    //             // Reload the page to get the updated list
-    //             location.reload();
-    //         }
-    //     );
-    // });
+        // Send the PUT request.
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredState
+        }).then(
+            function () {
+                console.log("changed edible to", devoured);
+                // Reload the page to get the updated list
+                location.reload();
+            }
+        );
+    });
 });

@@ -1,48 +1,44 @@
-<h1>Eat-Da-Burger!</h1>
-
-<h2>Burgers ready to be eaten!</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    <li>
-        {{burger_name}}
-
-        {{!-- <button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button> --}}
-
-        {{!-- <button class="delete-cat" data-id="{{this.id}}">DELETE!</button> --}}
-    </li>
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Burgers that have already been enjoyed!</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    <li>
-        {{burger_name}}
-
-        {{!-- <button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button> --}}
-
-        {{!-- <button class="delete-cat" data-id="{{this.id}}">DELETE!</button> --}}
-    </li>
-    {{/if}}
-    {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="burger">Burger Name:</label>
-        <input type="text" id="burger" name="name">
+<div class="container">
+    <div class="jumbotron d-flex justify-content-center">
+        <div class="text-center">
+        <img id="burgerimage" src="/assets/img/burger.png" alt="">
+        <h1>Eat-Da-Burger!</h1>
+        </div>
     </div>
+    <div class="row">
+        <div class="col edible text-center">
+            <h2>Burgers ready to be eaten!</h2>
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{>burger-block edible=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col devoured text-center">
+            <h2>Burgers that have been enjoyed!</h2>
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#if devoured}}
+                {{>burger-block edible=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center text-center">
+        <form class="create-form">
+            <h2>Add a Burger!</h2>
+            <div class="form-group">
+                <input class="burgerinput" type="text" id="burger" name="name">
+                <p>Enter the name of the burger you want to add.</p>
+            </div>
 
-    <button type="submit">Add Burger</button>
-</form>
+            <button type="submit">Add Burger</button>
+        </form>
+    </div>
+    <footer>
+        <a href='https://pngtree.com/so/hamburger'>hamburger png from pngtree.com</a>
+    </footer>
+</div>
